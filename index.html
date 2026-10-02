@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bryce Hamilton | Portfolio</title>
+  <meta name="description" content="Portfolio of Bryce Hamilton, business analyst and Rutgers Business School student.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --text: #1a1f2b;
+      --muted: #5b6475;
+      --border: #e3e6ec;
+      --accent: #1f4e8c;
+      --accent-soft: #e8eff9;
+      --chip: #f0f2f6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f131a;
+        --surface: #171c25;
+        --text: #e8ebf1;
+        --muted: #9aa3b4;
+        --border: #262d3a;
+        --accent: #7aa7e6;
+        --accent-soft: #1b2a40;
+        --chip: #1f2532;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+    .logo { font-weight: 700; color: var(--text); }
+    nav ul { list-style: none; display: flex; gap: 22px; }
+    nav ul a { color: var(--muted); font-size: 0.95rem; font-weight: 500; }
+    nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+    /* Hero */
+    header { padding: 96px 0 72px; }
+    .eyebrow { color: var(--accent); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.15; margin: 10px 0 20px; }
+    .statement { font-size: 1.2rem; color: var(--muted); max-width: 680px; }
+    .cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem; border: 1px solid var(--accent);
+    }
+    .btn.primary { background: var(--accent); color: var(--bg); }
+    .btn.ghost { color: var(--accent); }
+    .btn:hover { text-decoration: none; opacity: 0.88; }
+
+    /* Sections */
+    section { padding: 64px 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 1.6rem; margin-bottom: 8px; }
+    .sub { color: var(--muted); margin-bottom: 32px; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .skill-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px;
+    }
+    .skill-card h3 { font-size: 1rem; margin-bottom: 14px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+    .chips li {
+      background: var(--chip); border: 1px solid var(--border);
+      padding: 5px 12px; border-radius: 999px; font-size: 0.88rem;
+    }
+
+    /* Projects */
+    .project {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px; margin-bottom: 20px;
+    }
+    .project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .project h3 { font-size: 1.25rem; }
+    .tag { font-size: 0.82rem; color: var(--accent); background: var(--accent-soft); padding: 3px 10px; border-radius: 6px; font-weight: 500; }
+    .project p { color: var(--muted); margin: 12px 0; }
+    .project ul.points { margin: 0 0 16px 20px; color: var(--muted); }
+    .project ul.points li { margin-bottom: 6px; }
+    .stack { font-size: 0.88rem; color: var(--muted); margin-bottom: 14px; }
+    .stack strong { color: var(--text); }
+    .links { display: flex; gap: 18px; flex-wrap: wrap; font-weight: 600; font-size: 0.95rem; }
+    .note { font-size: 0.88rem; color: var(--muted); font-style: italic; }
+
+    /* Contact / footer */
+    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    footer { padding: 32px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.88rem; text-align: center; }
+
+    @media (max-width: 600px) {
+      nav ul { gap: 14px; }
+      nav ul a { font-size: 0.88rem; }
+      header { padding: 64px 0 48px; }
+      .project { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="#top" class="logo">Bryce Hamilton</a>
+      <ul>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="top">
+    <div class="wrap">
+      <p class="eyebrow">Business Analyst &middot; Rutgers Business School</p>
+      <h1>Hi, I'm Bryce.</h1>
+      <p class="statement">
+        I'm a Rutgers Business School junior studying supply chain and finance who turns large, messy datasets into clear business decisions.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View my projects</a>
+        <a class="btn ghost" href="mailto:bh625@scarletmail.rutgers.edu">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="sub">What I bring to an analyst team.</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Data &amp; Analytics</h3>
+          <ul class="chips">
+            <li>SQL (PostgreSQL)</li>
+            <li>Window functions</li>
+            <li>Query optimization</li>
+            <li>Large-scale data analysis</li>
+            <li>Outlier detection (z-score, IQR)</li>
+            <li>Fraud &amp; anomaly detection</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Business</h3>
+          <ul class="chips">
+            <li>Supply chain management</li>
+            <li>Operations &amp; logistics</li>
+            <li>Supplier relationship mgmt.</li>
+            <li>Financial analysis</li>
+            <li>Data storytelling</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Tools &amp; Development</h3>
+          <ul class="chips">
+            <li>Swift / SwiftUI</li>
+            <li>Xcode</li>
+            <li>Git &amp; GitHub</li>
+            <li>HTML &amp; CSS</li>
+            <li>AI-assisted workflows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="sub">Work I've built and analyzed.</p>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>Real-Time Payments Fraud Analysis</h3>
+          <span class="tag">Data Analytics &middot; Internship</span>
+        </div>
+        <p>
+          During my internship at a payments clearing company, I analyzed hundreds of millions of Real-Time Payments (RTP)
+          transactions to find patterns that separate fraudulent accounts from normal activity.
+        </p>
+        <ul class="points">
+          <li>Built SQL detection pipelines for fan-in/fan-out flows, payment velocity, mule-account behavior, and Request-for-Payment abuse.</li>
+          <li>Applied statistical outlier methods (percentiles, z-scores, IQR) to flag unusual accounts and amounts.</li>
+          <li>Found that confirmed fraud accounts often received additional payments from other senders within minutes of the flagged payment, and that funds tended to leave on other payment rails rather than RTP.</li>
+          <li>Optimized queries for a partitioned, read-only database using partition pruning and window functions instead of self-joins.</li>
+        </ul>
+        <p class="stack"><strong>Tools:</strong> PostgreSQL, SQL window functions, EXPLAIN / query planning</p>
+        <p class="note">Code and data are confidential to the employer, so no public repository is available.</p>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>Roomi: Roommate Household App</h3>
+          <span class="tag">iOS App &middot; Personal Project</span>
+        </div>
+        <p>
+          An iOS app that helps roommates share groceries and household costs without awkward money conversations.
+        </p>
+        <ul class="points">
+          <li>Logs shared purchases with dollar amounts and keeps a running ledger of who owes whom.</li>
+          <li>Group settle-up where a debt clears only after both roommates confirm the payment.</li>
+          <li>Join-with-code onboarding, a house chat, and a monthly "Wrapped" spending summary.</li>
+          <li>Designed and iterated through several versions; preparing for App Store release.</li>
+        </ul>
+        <p class="stack"><strong>Tools:</strong> Swift, SwiftUI, Xcode</p>
+        <div class="links">
+          <a href="https://github.com/bh625-star" target="_blank" rel="noopener">GitHub &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="sub">Open to business analyst and finance internship and full-time opportunities.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:bh625@scarletmail.rutgers.edu">Email me</a>
+        <a class="btn ghost" href="https://github.com/bh625-star" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Bryce Hamilton &middot; Built with HTML &amp; CSS, hosted on GitHub Pages</div>
+  </footer>
+
+</body>
+</html>
